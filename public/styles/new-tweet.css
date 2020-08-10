@@ -1,0 +1,27 @@
+.new-tweet form{
+  display:block;
+}
+.new-tweet label{
+  display:block;
+}
+.new-tweet textarea{
+  height:0;
+  background: transparent;
+  color: transparent;
+  resize: none;
+  border: 0 none;
+  width: 100%;
+  border:none;
+  border-bottom: 3px solid #000;
+}
+.new-tweet div{
+  display:flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.new-tweet button{
+  border:none;
+  background-color: #6D9B91;
+  font-family:"Bungee", cursive; 
+}

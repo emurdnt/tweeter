@@ -1,0 +1,11 @@
+header{
+  background-color: #E8E6CE;
+  background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+}
+header div {
+  padding:2rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+}

@@ -1,3 +1,4 @@
+
 /*
  * http://www.paulirish.com/2012/box-sizing-border-box-ftw/
  * https://css-tricks.com/international-box-sizing-awareness-day/
@@ -5,21 +6,24 @@
  */
 html {
   box-sizing: border-box;
-}
+  /* baseline font for my rem and em */ }
+
 *, *:before, *:after {
-  box-sizing: inherit;
-}
+  box-sizing: inherit; }
 
 /*
  * Global layout stuff
  */
-
 body {
   color: #545149;
   background-color: #f4f1ec;
   font-size: 24px;
-}
+  font-family: "Source Sans Pro", sans-serif; }
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+main {
+  width: 90%;
+  margin: 0 auto; 
+}
