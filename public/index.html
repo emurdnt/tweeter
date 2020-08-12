@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+  <head> 
     <!-- Meta Information -->
     <title>Tweeter - Home Page</title>
 
@@ -18,15 +18,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <!-- App JS -->
-    <script type="text/javascript" src="/scripts/client.js"></script>
+    <script defer type="text/javascript" src="/scripts/client.js"></script>
 
-    <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
+    <script defer type="text/javascript" src="/scripts/composer-char-counter.js"></script>
 
-    <script src="https://kit.fontawesome.com/cff85b250e.js" crossorigin="anonymous"></script>
+    <script defer src="https://kit.fontawesome.com/cff85b250e.js" crossorigin="anonymous"></script>
     <!--Google Fonts-->
     <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro:ital,wght@0,300;0,700;1,300;1,700&display=swap" rel="stylesheet"> 
-
-   
 
   </head>
 
@@ -51,39 +49,20 @@
   
     <!-- Page-specific (main) content here -->
     <main class="container">
-      <section class="new-tweet">
+      <section class="compose-tweet">
         <h2>Compose Tweet</h2>
-        <form method="POST" action="/tweets/">
+        <form id="new-tweet" method="POST" action="/tweets/">
           <label for="tweet-text">What are you humming about?</label>
           <textarea name="text" id="tweet-text"></textarea>
           <div>
-            <button type="submit">Tweet</button>
+            <button id="submit-tweet" type="submit">Tweet</button>
             <output name="counter" class="counter" for="tweet-text">140</output>
           </div>
         </form>
       </section> 
-      <article class="tweet-container">
-        <header>
-          <div>
-            <img src="images/profile-hex.png" alt="profile picture">
-            <p class="user-name">User</p>
-          </div>
-          <p>@User</p>
-        </header>
-        <div>
-          <p>TWEEEEET</p>
-        </div>
-        <footer>
-          <div>
-            <p>123 days ago</p>
-            <div>
-              <span>icon</span>
-              <span>icon</span>
-              <span>icon</span>
-            </div>
-          </div>
-        </footer>
-      </article>     
+      <section class="tweet-container">
+       
+      </section>
     </main>
   </body>
 </html>
