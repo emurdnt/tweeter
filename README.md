@@ -1,6 +1,6 @@
 # Tweeter Project
 
-Tweeter is a simple, single-page Twitter clone. Where the user can read through past tweets or create a new tweet. The project is built using  HTML, CSS, JS, jQuery and AJAX. 
+Tweeter is a simple, single-page Twitter clone. Where the user can read through past tweets or create a new tweet. The project is built using  **HTML**, **CSS**, **JS**, **jQuery** and **AJAX**. 
 
 I changed the original color scheme of Tweeter provided because I felt like it was a too loud and colourful. 
 
