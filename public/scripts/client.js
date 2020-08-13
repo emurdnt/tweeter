@@ -6,6 +6,9 @@
 
 $(document).ready(function() {
 
+  /*
+  Method for scrolling back up using the button at the bottom of the browser.
+  */
   const scrollUp = function (){
     const btn = $('button.scroll');
 
@@ -44,7 +47,9 @@ $(document).ready(function() {
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
   }
-  
+  /*
+  Method for submitting a tweet. Respnsible for handling errors in the form.
+  */
   const createTweetElement = function(tweet) {
     const datePosted = moment(tweet.created_at);
     const today = moment();
@@ -77,11 +82,14 @@ $(document).ready(function() {
   
   const loadTweets = function (){
     $.ajax('/tweets', { method: 'GET' })
-        .then(function (allTweets) {
-          renderTweets(allTweets);
-        });
+      .then(function (allTweets) {
+        renderTweets(allTweets);
+      });
   }
-  
+  /*
+  Method for creating the HTML elements of the tweet. Accepts the tweet object.
+  Returns the markup with the content.
+  */
   const submitTweet =  function (){
     $('#new-tweet').on("submit", function(event){
       event.preventDefault();
@@ -102,7 +110,7 @@ $(document).ready(function() {
           url: url,
           data : $form.serialize()
         }).then(function(data) {
-              loadTweets();
+          loadTweets();
         });
         $text.val("");
         

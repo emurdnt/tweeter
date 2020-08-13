@@ -4,11 +4,9 @@ body > header{
   width: 100%;
   padding:1rem;
 }
-
 header h2{
   font-weight: normal;
 }
-
 header span{
   font-weight: bold;
 }

@@ -21,18 +21,13 @@ body {
   font-weight: 300;
  }
 
-/*
- * Additional CSS can be defined below or in other CSS files, as per instructions
- */
 main {
   width: 90%;
   margin: 0 auto; 
 }
-
 section, article, header{
   margin-bottom: 3rem;
 }
-
 .scroll {
   border:none;
   display: inline-block;

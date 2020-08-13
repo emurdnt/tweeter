@@ -6,11 +6,9 @@
   border: 3px solid red;
   display:none;
 }
-
 .error-panel .error{
   margin:0.5rem;
 }
-
 .compose-tweet{
   display:none;
 }
@@ -40,21 +38,18 @@
   padding:0.5rem 1rem;
   
 }
-
 .compose-tweet button:hover{
   background-color:transparent;
   border: #6D9B91 solid 1px;
   transition: all 0.5s ease-in;
   
 }
-
 .tweet-container .tweet{
   border: 3px solid #4e4e4e;
   font-weight: 300;
   margin-bottom: 1.5rem;
   padding: 0.5rem;
 }
-
 .tweet header{
   display:flex;
   align-items:center;
@@ -66,17 +61,14 @@
 .tweet header > p{
   visibility: hidden;
 }
-
 .tweet header,
 .tweet > div,
 .tweet footer > div{
   margin:0 1.5rem;
 }
-
 .tweet > div{
   font-size: 24px;
 }
-
 .tweet footer > div {
   display:flex;
   align-items: center;
@@ -86,16 +78,13 @@
   border-top: 3px solid #4e4e4e;
   font-size:12px;
 }
-
 .tweet footer i:hover{
   color:#6D9B91;
 }
-
 .tweet-container .tweet:hover header > p{
   visibility: visible;;
   color:#d6d6d6;
 }
-
 .tweet-container .tweet:hover{
   -webkit-box-shadow: 10px 10px 0px 0px rgba(212,212,212,1);
   -moz-box-shadow: 10px 10px 0px 0px rgba(212,212,212,1);
@@ -115,6 +104,16 @@
   nav{
     background-color:#6D9B91;
     background-image: none;
+  }
+  .logo{
+    color:#fff;
+  }
+  nav button i{
+    color:#E8E6CE;
+  }
+  nav button:hover i{
+    color:#d6d6d6;
+    
   }
   body > header{
     width: 33%;
