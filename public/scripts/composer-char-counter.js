@@ -1,5 +1,4 @@
 $(document).ready(function() {
-
   $(".compose-tweet form textarea").on("keyup", function(evt) {
     let postLength = $(this).val().length;
     let charactersLeft = 140 - postLength;
