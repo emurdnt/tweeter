@@ -5,86 +5,112 @@
  */
 
 $(document).ready(function() {
-  
- 
-  const renderTweets = function(tweets) {
-    console.log(tweets);
-    for(let entry of tweets){
-      let $el = createTweetElement(entry);
-      $("section.tweet-container").append($el);
+
+  const scrollUp = function (){
+    const btn = $('button.scroll');
+
+    $(window).scroll(function() {
+    if ($(window).scrollTop() > 300) {
+      btn.addClass('show');
+    } else {
+      btn.removeClass('show');
     }
+  });
+  
+    btn.on('click', function(e) {
+      e.preventDefault();
+      $('html, body').animate({scrollTop:0}, '300');
+    }); 
+  }
+  
+  const toggleMenu = function() {
+    $("button.toggle-menu").on('click',function(event){
+      $("section.compose-tweet").toggle();
+      $("section.compose-tweet").find('textarea').focus();
+    })
+  }
+
+  const renderTweets = function(tweets) {
+    $("section.tweet-container").empty();
+    for(const entry of tweets){
+      const $el = createTweetElement(entry);
+      $("section.tweet-container").prepend($el);
+    }
+   
+  }
+  
+  const escape =  function(str) {
+    const div = document.createElement('div');
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
   }
   
   const createTweetElement = function(tweet) {
-    const $tweet  = $(`<article class="tweet">
-    <header>
-      <div>
-        <img src="${tweet.user.avatars}" alt="profile picture">
-        <p class="user-name">${tweet.user.name}</p>
-      </div>
-      <p>${tweet.user.handle}</p>
-    </header>
-    <div>
-      <p>${tweet.content.text}</p>
-    </div>
-    <footer>
-      <div>
-        <p>${tweet.content.created_at}</p>
+    const datePosted = moment(tweet.created_at);
+    const today = moment();
+    const diff = today.diff(datePosted,'days');
+    const $tweet  = $(`
+    <article class="tweet">
+      <header>
         <div>
-          <span>icon</span>
-          <span>icon</span>
-          <span>icon</span>
+          <img src="${tweet.user.avatars}" alt="profile picture">
+          <p class="user-name">${tweet.user.name}</p>
         </div>
+        <p>${tweet.user.handle}</p>
+      </header>
+      <div>
+        <p>${escape(tweet.content.text)}</p>
       </div>
-    </footer>
-  </article> `) 
-   
+      <footer>
+        <div>
+          <p>${diff} days ago</p>
+          <div>
+            <span><i class="fas fa-flag"></i></span>
+            <span><i class="fas fa-retweet"></i></span>
+            <span><i class="fas fa-heart"></i></span>
+          </div>
+        </div>
+      </footer>
+    </article> `);
     return $tweet;
   }
   
   const loadTweets = function (){
     $.ajax('/tweets', { method: 'GET' })
         .then(function (allTweets) {
-          allTweets.sort(function (a, b) {
-            return a['created_at'] < b['created_at'];
-          });
           renderTweets(allTweets);
         });
   }
-
+  
   const submitTweet =  function (){
     $('#new-tweet').on("submit", function(event){
       event.preventDefault();
-      let $form = $(this);
-      let url = $form.attr( "action" );
-      let $text = $form.find("#tweet-text");
+      const $form = $(this);
+      const url = $form.attr( "action" );
+      const $text = $form.find("#tweet-text");
 
       if(!$text.val()){
-        alert("Text field cannot be empty!");
+        $(".error-panel").slideDown( "slow" );
+        $(".error-panel p").text("Oops! You didn't write anything.");
       } else if ($text.val().length > 140) {
-        alert("Text cannot exceed the 140 character limit.");
+        $(".error-panel").slideDown( "slow" );
+        $(".error-panel p").text("You're a bit of a writer aren't you? 140 characters only.");
       } else {
-        console.log($form.serialize());
-        //this needs a code review
+        $(".error-panel").hide();
         $.ajax({
           type: 'POST',
           url: url,
-          //bad request errror
           data : $form.serialize()
-        }).done(function(data) {
-          
-              // log data to the console so we can see
-              renderTweets(data);
-  
-              // here we will handle errors and validation messages
+        }).then(function(data) {
+              loadTweets();
         });
-        //reset the form
         $text.val("");
         
       }
     });
   }
-
+  scrollUp();
+  toggleMenu();
   loadTweets();
   submitTweet();
   
