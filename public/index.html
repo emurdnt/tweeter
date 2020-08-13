@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head> 
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
+
     <!-- Meta Information -->
     <title>Tweeter - Home Page</title>
 
@@ -18,11 +20,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <!-- App JS -->
-    <script defer type="text/javascript" src="/scripts/client.js"></script>
+    <script type="text/javascript" src="/scripts/client.js"></script>
 
-    <script defer type="text/javascript" src="/scripts/composer-char-counter.js"></script>
+    <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
 
-    <script defer src="https://kit.fontawesome.com/cff85b250e.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/cff85b250e.js" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js" integrity="sha512-rmZcZsyhe0/MAjquhTgiUcb4d9knaFc7b5xAfju483gbEXTkeJRUMIPk6s3ySZMYUHEcjKbjLjyddGWMrNEvZg==" crossorigin="anonymous"></script>
     <!--Google Fonts-->
     <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro:ital,wght@0,300;0,700;1,300;1,700&display=swap" rel="stylesheet"> 
 
@@ -32,9 +36,10 @@
     <!-- Top nav bar (fixed) -->
     <nav>
       <span class="logo">tweeter</span>
-      <ul>
-        <li><span>Write</span> a new tweet</li>
-      </ul>
+      <button class="toggle-menu"><span><span class="bold">Write</span> a new tweet </span><i class="fas fa-angle-double-down"></i></button>
+      <!-- <ul>
+        <li><span>Write</span> a new tweet </li>
+      </ul> -->
     </nav>
 
     <!--Header-->
@@ -43,13 +48,16 @@
           <img src="/images/profile-hex.png"> 
       </div>
       <div>
-          <h2>Your Name</h2>
+          <h2><span>Emily</span> Urdaneta</h2>
       </div>
     </header>
-  
     <!-- Page-specific (main) content here -->
     <main class="container">
+      <button class="scroll"></button>
       <section class="compose-tweet">
+        <div class="error-panel">
+          <p class="error"></p>
+        </div>
         <h2>Compose Tweet</h2>
         <form id="new-tweet" method="POST" action="/tweets/">
           <label for="tweet-text">What are you humming about?</label>
