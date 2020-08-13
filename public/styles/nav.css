@@ -1,7 +1,11 @@
 nav{
+  width:100%;
   display:flex;
+  align-items: center;
   justify-content:space-between;
-  background-color:#6D9B91;
+  background-color: #E8E6CE;
+  background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
+  height: 150px;
   color:#fff;
   height: 120px;
   padding:2.5rem 1.5rem;
@@ -9,15 +13,26 @@ nav{
   top: 0;
 }
 .logo{
+  font-size: 24px;
   font-family:"Bungee", cursive; 
 }
-nav ul{
-  margin: 0;
-  padding: 0;
-  list-style: none;
+nav button .bold {
+  font-weight:700;
 }
-nav ul li {
-  display: inline-block;
-  margin-left: -2px;
-  margin-right: 2rem;
+
+nav button i{
+  color:#E8E6CE;
+}
+nav button {
+  background:transparent;
+  border:none;
+  display:flex;
+  flex-direction:column;
+}
+
+nav button:hover > span{
+  color:#fff;
+}
+nav button:hover i{
+  color:#000;
 }

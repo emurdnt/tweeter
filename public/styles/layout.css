@@ -17,9 +17,8 @@ html {
 body {
   color: #545149;
   background-color: #f4f1ec;
-  font-size: 24px;
   font-family: "Source Sans Pro", sans-serif;
-  font-weight: 700;
+  font-weight: 300;
  }
 
 /*
@@ -30,6 +29,42 @@ main {
   margin: 0 auto; 
 }
 
-section, article{
+section, article, header{
   margin-bottom: 3rem;
 }
+
+.scroll {
+  border:none;
+  display: inline-block;
+  background-color:rgba(109, 156, 146, 0.51);
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  position: fixed;
+  bottom: 30px;
+  right: 20px;
+  transition: background-color .3s, 
+    opacity .5s, visibility .5s;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1000;
+}
+.scroll::after {
+  content: "\f077";
+  font-family: FontAwesome;
+  font-size: 1em;
+  line-height: 35px;
+  color: #E8E6CE;
+}
+.scroll:hover {
+  cursor: pointer;
+  background-color: #333;
+}
+.scroll:active {
+  background-color: #555;
+}
+.scroll.show {
+  opacity: 1;
+  visibility: visible;
+}
+
